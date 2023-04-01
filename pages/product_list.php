@@ -61,6 +61,5 @@ $_SESSION['data'] = $data;
   </form>
 </div>    
 <footer>Scandiweb Test Assignment</footer>
-<script src="./delete.js"></script>
 </body>
 </html>
