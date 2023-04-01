@@ -44,7 +44,7 @@ $_SESSION['data'] = $data;
     <div class="product-grid">
       <?php foreach ($_SESSION['data'] as $row): ?>
       <div class="products">
-        <input type="checkbox" name="delete_checkbox[]" value="<?php echo $row['id']; ?>">
+        <input type="checkbox" class="delete-checkbox" name="delete_checkbox[]" value="<?php echo $row['id']; ?>">
         <div class="common_properties">
           <p class="sku"><?php echo $row['sku']; ?></p>
           <p class="name"><?php echo $row['name']; ?></p>
