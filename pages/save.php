@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Insert the product data into the database
             if ($database->insertData($sku, $name, $price, $typeSwitcher, $size, $height, $width, $length, $weight)) {
                 // If the data was inserted successfully, redirect to the product list page
-                header('Location: ./product_list.php');
+                header('Location: ./index.php');
                 exit();
             } else {
                 // If there was an error inserting the data, display an error message

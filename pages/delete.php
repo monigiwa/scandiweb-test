@@ -28,7 +28,7 @@ class ProductDeletionController {
                 // Delete the selected products from the database
                 if ($this->database->deleteProductBtn($ids)) {
                     // If the products were deleted successfully, redirect to the product list page
-                    header('Location: ./product_list.php');
+                    header('Location: ./index.php');
                     exit();
                 } else {
                     // If there was an error deleting the products, display an error message
