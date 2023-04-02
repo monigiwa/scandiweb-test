@@ -23,7 +23,7 @@ $validators = [
     new PriceValidator(),
 ];
 $typeSwitcher = '';
-if(isset($_POST['typeSwitcher']) && $_POST['typeSwitcher'] == 'book') {
+if(isset($_POST['productType']) && $_POST['ProductType'] == 'book') {
     // If the product type is book, add the weight validator
     $validators[] = new WeightValidator();
 }
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sku = htmlspecialchars($_POST['sku']);
     $name = htmlspecialchars($_POST['name']);
     $price = htmlspecialchars($_POST['price']);
-    $typeSwitcher = htmlspecialchars($_POST['typeSwitcher']);
+    $typeSwitcher = htmlspecialchars($_POST['productType']);
     $size = '';
     $height = '';
     $width = '';
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'sku' => $sku,
         'name' => $name,
         'price' => $price,
-        'typeSwitcher' => $typeSwitcher,
+        'productType' => $typeSwitcher,
         'size' => $size,
         'height' => $height,
         'width' => $width,
