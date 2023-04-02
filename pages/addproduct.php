@@ -23,7 +23,7 @@
                 </div>
                 <div id="product_btn">
                   <button id="submit-btn" name="submit-btn" type="submit">Save</button>
-                  <button type="button" id="cancel" name="cancel"><a href="./product_list.php">Cancel</a></button> 
+                  <button type="button" id="cancel" name="cancel"><a href="./index.php">Cancel</a></button> 
                 </div>
             </div>
         </nav>
