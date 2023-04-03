@@ -35,8 +35,8 @@ $_SESSION['data'] = $data;
                     <h1 id="h1">Product List</h1>
                 </div>
                 <div id="product_btn">
-                  <button type="button" id="add-btn"><a href="./addproduct.php">Add</a></button>
-                  <button type="submit" id="delete-product-btn" name="delete-product-btn">Mass Delete</button> 
+                  <button type="button" id="add-btn"><a href="./addproduct.php">ADD</a></button>
+                  <button type="submit" id="delete-product-btn" name="delete-product-btn">MASS DELETE</button> 
                 </div>
             </div>
         </nav>

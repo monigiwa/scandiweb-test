@@ -37,7 +37,7 @@
 
         <label for="price">Price ($)</label>
         <input type="text" name="price" id="price" placeholder="product price ($)"><br>
-        <label for="productType">Type Switcher</label>
+        <!-- <label for="productType">Type Switcher</label> -->
         <select name="productType" id="productType">
           <option disabled="disabled" selected="selected" value="">Type Switcher</option>
           <option value="DVD" >DVD</option>
