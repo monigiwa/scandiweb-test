@@ -26,8 +26,19 @@ $typeSwitcher = '';
 if(isset($_POST['productType']) && $_POST['ProductType'] == 'book') {
     // If the product type is book, add the weight validator
     $validators[] = new WeightValidator();
+}else if(isset($_POST['productType']) && $_POST['ProductType'] == 'DVD') {
+    $validators[] = new SizeValidator();
+}else if(isset($_POST['productType']) && $_POST['ProductType'] == 'Furniture') {
+    $validators[] = new HeightValidator();
+    $validators[] = new WidthValidator();
+    $validators[] = new LengthValidator();
 }
-
+else{
+    $validators[] = new SkuValidator();
+    $validators[] = new NameValidator();
+    $validators[] = new PriceValidator();
+    
+}
 // If all inputs are valid, save them to the database
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
