@@ -1,28 +1,21 @@
-const form = document.querySelector('form');
-const productType = document.getElementById('productType');
-const dvdInfo = document.getElementById('dvd-info');
-const furnitureInfo = document.getElementById('furniture-info');
-const bookInfo = document.getElementById('book-info');
+const form = document.querySelector("form");
+const productType = document.getElementById("productType");
+const dvdInfo = document.getElementById("dvd-info");
+const furnitureInfo = document.getElementById("furniture-info");
+const bookInfo = document.getElementById("book-info");
+const productInfoMap = new Map([
+  ["DVD", dvdInfo],
+  ["Furniture", furnitureInfo],
+  ["Book", bookInfo],
+]);
 
-productType.addEventListener('change', function() {
-    if (productType.value === 'DVD') {
-      dvdInfo.style.display = 'block';
-      furnitureInfo.style.display = 'none';
-      bookInfo.style.display = 'none';
-
-    } else if (productType.value === 'Furniture') {
-      furnitureInfo.style.display = 'block';
-      dvdInfo.style.display = 'none';
-      bookInfo.style.display = 'none';
-     
-    } else if (productType.value === 'Book') {
-      bookInfo.style.display = 'block';
-      dvdInfo.style.display = 'none';
-      furnitureInfo.style.display = 'none';
-      
+productType.addEventListener("change", function () {
+  const productInfo = productInfoMap.get(productType.value);
+  [dvdInfo, furnitureInfo, bookInfo].forEach((info) => {
+    if (info === productInfo) {
+      info.style.display = "block";
     } else {
-      dvdInfo.style.display = 'none';
-      furnitureInfo.style.display = 'none';
-      bookInfo.style.display = 'none';
+      info.style.display = "none";
     }
   });
+});

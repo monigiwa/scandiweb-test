@@ -23,12 +23,12 @@ $validators = [
     new PriceValidator(),
 ];
 $typeSwitcher = '';
-if(isset($_POST['productType']) && $_POST['ProductType'] == 'book') {
+if(isset($_POST['productType']) && $_POST['productType'] == 'book') {
     // If the product type is book, add the weight validator
     $validators[] = new WeightValidator();
-}else if(isset($_POST['productType']) && $_POST['ProductType'] == 'DVD') {
+}else if(isset($_POST['productType']) && $_POST['productType'] == 'DVD') {
     $validators[] = new SizeValidator();
-}else if(isset($_POST['productType']) && $_POST['ProductType'] == 'Furniture') {
+}else if(isset($_POST['productType']) && $_POST['productType'] == 'Furniture') {
     $validators[] = new HeightValidator();
     $validators[] = new WidthValidator();
     $validators[] = new LengthValidator();
