@@ -1,5 +1,5 @@
 <?php
-
+include 'includes/autoloader.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css.css">
+    <link rel="stylesheet" href="css/css.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 <body>
@@ -68,9 +68,9 @@
     </form>
   </div>
   <footer>Scandiweb Test Assignment</footer>
-<script src="./type.js"></script>
+<script src="js/type.js"></script>
 <div class="error-message">
-<?php require_once('save.php'); ?>
+<?php require_once('includes/save.php'); ?>
 </div>
 </body>
 </html>

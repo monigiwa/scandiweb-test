@@ -1,7 +1,8 @@
 <?php
-require_once('dbh.php');
-require_once('delete.php');
-require_once('config.php');
+require_once('classes/dbh.php');
+require_once('classes/delete.php');
+require_once('classes/config.php');
+include 'includes/autoloader.php';
 // require_once('product.php');
 // require_once('book.php');
 // require_once('furniture.php');

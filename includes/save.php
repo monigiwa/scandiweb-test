@@ -1,7 +1,8 @@
 <?php
-require_once('validator.php');
-require_once('config.php');
-require_once('dbh.php');
+require_once('classes/validator.php');
+require_once('classes/config.php');
+require_once('classes/dbh.php');
+include 'includes/autoloader.php';
 
 // Create a new database connection
 
@@ -17,28 +18,23 @@ try {
 $database = new Database($databaseConnection);
   
 // Create an array of validators
-$validators = [
+$validatorMap = [
+    'book' => [new WeightValidator()],
+    'DVD' => [new SizeValidator()],
+    'Furniture' => [
+        new HeightValidator(),
+        new WidthValidator(),
+        new LengthValidator(),
+    ],
+];
+
+$productType = isset($_POST['productType']) ? $_POST['productType'] : '';
+
+$validators = $validatorMap[$productType] ?? [
     new SkuValidator(),
     new NameValidator(),
     new PriceValidator(),
 ];
-$typeSwitcher = '';
-if(isset($_POST['productType']) && $_POST['productType'] == 'book') {
-    // If the product type is book, add the weight validator
-    $validators[] = new WeightValidator();
-}else if(isset($_POST['productType']) && $_POST['productType'] == 'DVD') {
-    $validators[] = new SizeValidator();
-}else if(isset($_POST['productType']) && $_POST['productType'] == 'Furniture') {
-    $validators[] = new HeightValidator();
-    $validators[] = new WidthValidator();
-    $validators[] = new LengthValidator();
-}
-else{
-    $validators[] = new SkuValidator();
-    $validators[] = new NameValidator();
-    $validators[] = new PriceValidator();
-    
-}
 // If all inputs are valid, save them to the database
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -104,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Insert the product data into the database
             if ($database->insertData($sku, $name, $price, $typeSwitcher, $size, $height, $width, $length, $weight)) {
                 // If the data was inserted successfully, redirect to the product list page
-                header('Location: ./index.php');
+                header('Location: pages/index.php');
                 exit();
             } else {
                 // If there was an error inserting the data, display an error message
